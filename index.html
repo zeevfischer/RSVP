@@ -175,6 +175,21 @@
       margin-top: 4px;
     }
   </style>
+  <script>
+    function handleAttendanceChange() {
+      const attendanceSelect = document.querySelector('select[name="attendance"]');
+      const guestsInput = document.querySelector('input[name="guests"]');
+      
+      if (attendanceSelect.value === 'no') {
+        guestsInput.value = '0';
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const attendanceSelect = document.querySelector('select[name="attendance"]');
+      attendanceSelect.addEventListener('change', handleAttendanceChange);
+    });
+  </script>
 </head>
 <body>
 
@@ -195,7 +210,7 @@
         <!-- TEXT + BUTTON -->
         <div>
           <p class="title">You’re invited</p>
-          <h1 class="names">[Zeev fischer] &amp; [Noam hamami]</h1>
+          <h1 class="names"> Zeev fischer &amp; Noam hamami </h1>
 
           <div class="details">
             <p><strong>Date:</strong> 16/3/2026</p>
@@ -227,8 +242,8 @@
         </label>
 
         <label>
-          Phone or email (used to update your answer) *
-          <input type="text" name="contact" required />
+          Phone  *
+          <input type="tel" name="contact" pattern="[0-9]+" inputmode="numeric" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
         </label>
 
         <label>
@@ -241,8 +256,13 @@
         </label>
 
         <label>
-          Number of guests (including you)
+          Number of adults (including you)
           <input type="number" name="guests" min="1" max="10" value="1" />
+        </label>
+        
+        <label>
+          Number of kids 
+          <input type="number" name="guests" min="0" max="10" value="0" />
         </label>
 
         <label>
