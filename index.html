@@ -1,180 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>Wedding RSVP</title>
+  <title>אישור הגעה לחתונה</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f3f0;
-      color: #333;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .card {
-      max-width: 900px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .hero-image-wrapper {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #e5d8cf;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .hero-image-placeholder {
-      width: 100%;
-      max-height: 380px;
-      object-fit: cover;
-      display: block;
-      border-radius: 12px;
-      background: #d1c2b8;
-    }
-
-    .title {
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin: 0 0 8px;
-    }
-
-    .names {
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: 40px;
-      margin: 0 0 12px;
-    }
-
-    .details {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e3d9d0;
-      margin: 16px 0;
-    }
-
-    .primary-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: none;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      background: #c08a57;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .primary-btn:hover {
-      filter: brightness(1.06);
-    }
-
-    .rsvp-section {
-      padding: 24px 20px 60px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .rsvp-card {
-      max-width: 700px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 24px 24px 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    label {
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #d6c9bf;
-      font-size: 14px;
-      font-family: inherit;
-      background: #fbf8f6;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    button[type="submit"] {
-      margin-top: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: none;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      background: #c08a57;
-      color: #fff;
-    }
-
-    button[type="submit"]:hover {
-      filter: brightness(1.06);
-    }
-
-    .small-note {
-      font-size: 12px;
-      color: #777;
-      margin-top: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <script>
     function handleAttendanceChange() {
       const attendanceSelect = document.querySelector('select[name="attendance"]');
@@ -198,29 +28,28 @@
     <div class="card">
       <div class="hero-grid">
 
-        <!-- IMAGE PLACEHOLDER -->
+        <!-- IMAGE PLACEHOLDER (removed). A background image may be added here later. -->
         <div class="hero-image-wrapper">
-          <img
-            class="hero-image-placeholder"
-            src="https://via.placeholder.com/800x500?text=Your+Wedding+Photo+Here"
-            alt="Wedding"
-          />
         </div>
 
         <!-- TEXT + BUTTON -->
-        <div>
-          <p class="title">You’re invited</p>
-          <h1 class="names"> Zeev fischer &amp; Noam hamami </h1>
+        <div class="hero-text">
+          <p class="title">הנכם מוזמנים לחינה של</p>
+          <h1 class="names"> זאב פישר &amp; נועם חממי </h1>
 
           <div class="details">
-            <p><strong>Date:</strong> 16/3/2026</p>
-            <p><strong>Location:</strong> ביער, חדרה</p>
+            <p class="rtl center" dir="rtl" lang="he">אנו שמחים להזמין אתכם לחגוג עמנו</p>
+            <p class="date-hebrew rtl" dir="rtl" lang="he">יום שני - כ"ז אדר תשפ"ו</p>
+            <p class="date-gregorian">16/2/2026</p>
+            <p><span class="location-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                </svg>
+              </span>פבריקה, 14 החרושת כפר סבא</p>
             <div class="divider"></div>
-            <p>We’d love to celebrate this special day with you.<br>
-            Please scroll down and confirm your attendance.</p>
           </div>
 
-          <a href="#rsvp-form" class="primary-btn">RSVP</a>
+          <a href="#rsvp-form" class="primary-btn">אשר הגעה</a>
         </div>
       </div>
     </div>
@@ -229,44 +58,43 @@
   <!-- RSVP FORM -->
   <section class="rsvp-section" id="rsvp-form">
     <div class="rsvp-card">
-      <h2 style="margin-top:0; margin-bottom:4px;">RSVP</h2>
-      <p class="small-note">
-        Please fill in your details. If you change your mind later, just fill the form again with the
-        same phone/email and your previous answer will update.
+      <h2 style="margin-top:0; margin-bottom:4px;">אישור הגעה</h2>
+      <p class="small-note rtl" dir="rtl" lang="he">
+        אנא מלאו את כל הפרטים מטה. לעדכון הפרטים מלאו את הטופס מחדש עם אותו טלפון, והתשובה הקודמת תעודכן.
       </p>
 
       <form method="POST" action="https://script.google.com/macros/s/AKfycbyVEPTlFKlEseNpiOBhg_sd8YKNq20yVqXlxW7QDeN1c5M_DlxHMgZhlfJvMLKg8YlLWw/exec">
         <label>
-          Full name *
+          שם מלא *
           <input type="text" name="name" required />
         </label>
 
         <label>
-          Phone  *
+          טלפון *
           <input type="tel" name="contact" pattern="[0-9]+" inputmode="numeric" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
         </label>
 
         <label>
-          Will you attend? *
+          האם תשתתפו? *
           <select name="attendance" required>
-            <option value="">Select…</option>
-            <option value="yes">Yes, I’ll be there</option>
-            <option value="no">Sorry, I can’t make it</option>
+            <option value="">בחר/י…</option>
+            <option value="yes">כן, אבוא</option>
+            <option value="no">לא, לא אוכל להגיע</option>
           </select>
         </label>
 
         <label>
-          Number of adults (including you)
-          <input type="number" name="guests" min="1" max="10" value="1" />
+          מספר מבוגרים (כולל אותך)
+          <input type="number" name="adults" min="0" max="10" value="1" />
         </label>
         
         <label>
-          Number of kids 
-          <input type="number" name="guests" min="0" max="10" value="0" />
+          מספר ילדים
+          <input type="number" name="kids" min="0" max="10" value="0" />
         </label>
 
         <label>
-          Notes (allergies, etc.)
+          הערות (אלרגיות, וכו')
           <textarea name="notes"></textarea>
         </label>
 
