@@ -49,6 +49,10 @@ body {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+  /* nudge the card background to the left on small screens so focal point remains visible */
+  .card {
+    background-position: 30% center;
+  }
 }
 
 .hero-image-wrapper {
