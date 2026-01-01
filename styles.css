@@ -51,7 +51,7 @@ body {
   }
   /* nudge the card background to the left on small screens so focal point remains visible */
   .card {
-    background-position: 30% right;
+    background-position: 70% center;
   }
 }
 
@@ -250,4 +250,5 @@ button[type="submit"]:hover {
   display: block;
   fill: currentColor;
 }
+
 
