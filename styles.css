@@ -1,8 +1,21 @@
 * { box-sizing: border-box; }
 
+
+/* ✅ Load KomikaTitle (place these files in: /fonts/KomikaTitle.woff2 and /fonts/KomikaTitle.woff
+   IMPORTANT: This path is relative to THIS CSS file location. */
+@font-face {
+  font-family: "KomikaTitle";
+  src: url("./fonts/KomikaTitle.woff2") format("woff2"),
+       url("./fonts/KomikaTitle.woff") format("woff");
+  font-weight: 400 900;   /* ✅ prevents fallback when something is bold */
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; */
+  font-family: "KomikaTitle", "Varela Round", system-ui, sans-serif;
   /* Page background image (GitHub raw URL) */
   background-color: #f7f3f0;
   background-image: url("https://raw.githubusercontent.com/zeevfischer/RSVP/main/ChatGPT%20Image%20Dec%2031%2C%202025%2C%2008_31_13%20PM.png");
@@ -101,14 +114,17 @@ body {
   background: #d1c2b8;
 }
 
+/* ✅ UPDATED: use KomikaTitle (and override the card’s bold weight to avoid fallback) */
 .title {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "KomikaTitle", "Varela Round", system-ui, sans-serif !important;
+  /* font-weight: 400 !important; */
   font-size: 25px;
   margin: 0 0 12px;
 }
 
 .names {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "KomikaTitle", "Varela Round", system-ui, sans-serif !important;
+  /* font-weight: 400 !important; */
   font-size: 40px;
   margin: 0 0 12px;
 }
