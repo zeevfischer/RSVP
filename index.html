@@ -8,16 +8,24 @@
   <script>
     function handleAttendanceChange() {
       const attendanceSelect = document.querySelector('select[name="attendance"]');
-      const guestsInput = document.querySelector('input[name="guests"]');
-      
+      const adultsInput = document.querySelector('input[name="adults"]');
+      const kidsInput   = document.querySelector('input[name="kids"]');
+
+      if (!attendanceSelect || !adultsInput || !kidsInput) return;
+
       if (attendanceSelect.value === 'no') {
-        guestsInput.value = '0';
+        adultsInput.value = '0';
+        kidsInput.value   = '0';
       }
     }
-    
+
     document.addEventListener('DOMContentLoaded', function() {
       const attendanceSelect = document.querySelector('select[name="attendance"]');
-      attendanceSelect.addEventListener('change', handleAttendanceChange);
+      if (attendanceSelect) {
+        attendanceSelect.addEventListener('change', handleAttendanceChange);
+        // Run once on load (in case browser restores form values)
+        handleAttendanceChange();
+      }
     });
   </script>
 </head>
@@ -41,13 +49,13 @@
             <p class="rtl center" dir="rtl" lang="he">אנו שמחים להזמין אתכם לחגוג עמנו</p>
             <p class="date-hebrew rtl" dir="rtl" lang="he">יום שני - כ"ז אדר תשפ"ו</p>
             <p class="date-gregorian">16/2/2026</p>
-            <p class="info-bold"><span class="location-icon" aria-hidden="true">
+            <p><span class="location-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
                 </svg>
               </span>פבריקה, 14 החרושת כפר סבא</p>
-            <p class="info-bold">קבלת פנים: 19:15</p>
-            <p class="info-bold">טקס החינה: 20:00</p>
+            <p>קבלת פנים: 19:15</p>
+            <p>טקס החינה: 20:00</p>
             <div class="divider"></div>
           </div>
 
@@ -65,7 +73,7 @@
         אנא מלאו את כל הפרטים מטה. לעדכון הפרטים מלאו את הטופס מחדש עם אותו טלפון, והתשובה הקודמת תעודכן.
       </p>
 
-      <form method="POST" action="https://script.google.com/macros/s/AKfycbyVEPTlFKlEseNpiOBhg_sd8YKNq20yVqXlxW7QDeN1c5M_DlxHMgZhlfJvMLKg8YlLWw/exec">
+      <form method="POST" action="https://script.google.com/macros/s/AKfycbyLQMmBqUq2dCJXHBXCTW7Hu6LmqNPlhG72ThrQpK_-DJtaTStl_8AP8wkogG4phsuW/exec">
         <label>
           שם מלא *
           <input type="text" name="name" required />
@@ -87,12 +95,12 @@
 
         <label>
           מספר מבוגרים (כולל אותך)
-          <input type="number" name="adults" min="0" max="10" value="1" />
+          <input type="number" name="adults" min="0" max="20" value="1" />
         </label>
         
         <label>
           מספר ילדים
-          <input type="number" name="kids" min="0" max="10" value="0" />
+          <input type="number" name="kids" min="0" max="20" value="0" />
         </label>
 
         <label>
